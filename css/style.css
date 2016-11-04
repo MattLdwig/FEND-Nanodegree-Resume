@@ -175,6 +175,12 @@ span {
   text-align: center;
 }
 
+/* CSS perso */
+
+.email {
+  display: inherit;
+}
+
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
