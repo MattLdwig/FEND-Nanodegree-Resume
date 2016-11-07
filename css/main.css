@@ -1,0 +1,61 @@
+body {
+  font-size: 18px;
+  color: #45423e; }
+
+.container-fluid {
+  padding: 0; }
+
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Code Pro', monospace; }
+
+.bold-text {
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+  padding: 0; }
+
+a {
+  color: #45423e;
+  text-decoration: none; }
+
+#header {
+  background: #e6e3e1; }
+  #header .topInfo {
+    display: flex;
+    align-items: flex-end; }
+    #header .topInfo .welcome-message {
+      line-height: 1.7;
+      color: #45423e;
+      font-style: normal; }
+      #header .topInfo .welcome-message .intro {
+        color: #020203;
+        font-size: 71px;
+        font-weight: 900; }
+      #header .topInfo .welcome-message .comma {
+        color: #ec008c; }
+      #header .topInfo .welcome-message #name, #header .topInfo .welcome-message .role {
+        color: #45423e;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 1.7; }
+
+#topContacts {
+  display: flex;
+  flex-direction: column; }
+
+.progress {
+  width: 100%; }
+  .progress .progress-bar {
+    background-color: #ec008c; }
+
+/*# sourceMappingURL=main.css.map */

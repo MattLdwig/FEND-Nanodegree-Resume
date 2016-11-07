@@ -1,6 +1,6 @@
 var bio = {
   "name" : "Matt Ludwig",
-  "role" : "Web Developper",
+  "role" : "web Developper",
   "contacts" : {
     "mobile" : "00-00-00-00-00",
     "email" : "mattldwig@gmail.com",
@@ -10,16 +10,26 @@ var bio = {
   },
   "biopic" : 'images/matt_ludwig.jpg',
   "skills" : ['HTML', 'CSS', 'Adobe Photoshop', 'Adobe Illustator', 'Adobe After Effects'],
-  "message" : "Welcome to my resume !",
+  "progress" : [60, 65, 80, 45, 35],
+  "message" : "Bonjour, Mon nom est Matt Ludwig. Je suis web Developpeur.<br>"+
+              " Enthousiaste, curieux et passionné,<br>"+
+              " j’aime mettre a profit mon esprit créatif pour <br>"+
+              " imaginer de nouvelles choses et trouver <br>"+
+              " des solutions innovantes aux problèmes.",
   "display" : function() {
     var formattedHeaderName = HTMLheaderName.replace('%data%',bio.name);
-    $('#header').append(formattedHeaderName);
     var formattedHeaderRole = HTMLheaderRole.replace('%data%',bio.role);
-    $('#header:last').append(formattedHeaderRole);
-    var formattedBioPic = HTMLbioPic.replace('%data%',bio.biopic);
-    $('#header:last').append(formattedBioPic);
+    // Message
     var formattedMsg = HTMLwelcomeMsg.replace('%data%',bio.message);
-    $('#header:last').append(formattedMsg);
+    $('#header').prepend(rowHeader);
+    $('.topInfo').prepend(formattedMsg);
+    $('.welcome-message').html($('.welcome-message').html().replace(/(Bonjour,)/,'<div class="intro">$1</div>'));
+    $('.welcome-message').html($('.welcome-message').html().replace(/(,)/,'<span class="comma">$1</span>'));
+    $('.welcome-message').html($('.welcome-message').html().replace(/(Matt Ludwig)+/g, formattedHeaderName));
+    $('.welcome-message').html($('.welcome-message').html().replace(/(web Developpeur)+/g, formattedHeaderRole));
+    $('.welcome-message').addClass('cox-xs-12 col-md-6');
+
+    // Formating Contact Informations
     var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
     $('#topContacts').append(formattedMobile);
     var formattedEmail = HTMLemail.replace('%data%','<a class="email" href=mailto:'+bio.contacts.email+'>'+bio.contacts.email+'</a>');
@@ -32,17 +42,33 @@ var bio = {
     $('#topContacts').append(formattedBlog);
     var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
     $('#topContacts').append(formattedLocation);
+    // Add Bootstrap to #topContacts
+    $('#topContacts').removeClass('flex-box').addClass('col-xs-12 col-md-4 col-md-offset-2');
+    // Detach #topContacts from the DOM and insert it in .topInfo row
+    var x = $('#topContacts');
+    $('#topContacts').detach();
+    $('.topInfo').append(x);
 
-    $('#header').append(HTMLskillsStart);
+    $('#header').append(rowSkills);
+
+    $('.skills').append(HTMLskillsStart);
+    $('#skills').wrap('<div class="col-xs-12" />');
     if(bio.skills.length > 0) {
       bio.skills.forEach(function(skill){
         var formattedSkills = HTMLskills.replace('%data%',skill);
-        $('#skills').append(formattedSkills);
+        var formmatedSkillsProgress = HTMLskillsProgress.replace('%data%',bio.progress[bio.skills.indexOf(skill)]);
+        formmatedSkillsProgress = formmatedSkillsProgress.replace('%value%',bio.progress[bio.skills.indexOf(skill)]);
+        if(bio.skills.indexOf(skill) === 0 || bio.skills.indexOf(skill) === 3) {
+          $('#skills').append(formattedSkills + formmatedSkillsProgress);
+        }
+        else {
+          $('#skills').append(formattedSkills +formmatedSkillsProgress);
+        }
       });
       // Change the class of the <ul> for display <li> horizontaly
-      $('#skills').removeClass('flex-column').addClass('flex-box');
+
     }
   }
 };
-
+$('#main').addClass('container-fluid');
 bio.display();

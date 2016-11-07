@@ -1,0 +1,82 @@
+$lightGrey : #e6e3e1;
+$middleGrey : #45423e;
+$darkGrey : #020203;
+$accent : #ec008c;
+
+$largeTitleSize : 71px;
+$smallTitleSize : 32px;
+$bodySize : 18px;
+
+body {
+  font-size: $bodySize;
+  color: $middleGrey;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Code Pro', monospace;
+}
+
+.bold-text {
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+  padding: 0;
+}
+
+a {
+  color: $middleGrey;
+  text-decoration: none;
+}
+
+#header {
+  background: $lightGrey;
+  .topInfo {
+    display: flex;
+    align-items: flex-end;
+    .welcome-message {
+      line-height: 1.7;
+      color: $middleGrey;
+        font-style: normal;
+      .intro {
+        color: $darkGrey;
+        font-size: 71px;
+        font-weight: 900;
+      }
+        .comma {
+          color: $accent;
+        }
+      #name, .role {
+        color: $middleGrey;
+        font-weight: bold;
+        font-size: $bodySize;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+#topContacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress {
+  width: 100%;
+  .progress-bar {
+    background-color: $accent;
+  }
+}
