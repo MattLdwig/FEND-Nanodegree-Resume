@@ -54,7 +54,11 @@ a {
   flex-direction: column; }
 
 .progress {
-  width: 100%; }
+  width: 20em;
+  background-color: #c9c2bc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 15px; }
   .progress .progress-bar {
     background-color: #ec008c; }
 
@@ -63,14 +67,17 @@ a {
   font-size: 32px;
   text-align: center;
   font-style: normal;
-  padding: 50px 0 20px 0; }
+  padding: 20px; }
+
+.skills {
+  margin-top: 50px; }
 
 #skills {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: flex-end; }
   #skills .col-md-5 {
-    padding: 10px; }
+    padding: 10px 0 0; }
 
 /*# sourceMappingURL=main.css.map */

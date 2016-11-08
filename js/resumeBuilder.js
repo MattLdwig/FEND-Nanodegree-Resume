@@ -60,7 +60,7 @@ var bio = {
         formmatedSkillsProgress = formmatedSkillsProgress.replace('%value%',bio.progress[bio.skills.indexOf(skill)]);
         $('#skills').append(formattedSkills + formmatedSkillsProgress);
 
-        $('#skills').children('li').wrapAll('<div class="col-md-5"></div>');
+        $('#skills').children('li').wrapAll('<div class="col-xs-12 col-md-5"></div>');
 
       });
     }

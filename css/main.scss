@@ -75,7 +75,11 @@ a {
 }
 
 .progress {
-  width: 100%;
+  width: 20em;
+  background-color: #c9c2bc;
+  -webkit-box-shadow : none;
+  box-shadow: none;
+  height: 15px;
   .progress-bar {
     background-color: $accent;
   }
@@ -86,16 +90,20 @@ a {
   font-size: $smallTitleSize;
   text-align: center;
   font-style: normal;
-  padding: 50px 0 20px 0;
+  padding: 20px;
+}
+
+.skills {
+  margin-top: 50px;
 }
 
 #skills {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
 
   .col-md-5 {
-    padding: 10px;
+    padding: 10px 0 0;
   }
 }
