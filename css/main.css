@@ -58,4 +58,19 @@ a {
   .progress .progress-bar {
     background-color: #ec008c; }
 
+#skills-h3 {
+  color: #020203;
+  font-size: 32px;
+  text-align: center;
+  font-style: normal;
+  padding: 50px 0 20px 0; }
+
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #skills .col-md-5 {
+    padding: 10px; }
+
 /*# sourceMappingURL=main.css.map */

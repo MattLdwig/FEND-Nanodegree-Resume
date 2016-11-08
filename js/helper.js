@@ -29,13 +29,13 @@ var HTMLlocation = '<li class="flex-item"><span class="bold-text">Location</span
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<div class="welcome-message">%data%</div>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
-var HTMLskillsProgress = '<div class="progress">'+
+var HTMLskillsProgress = '<li><div class="progress">'+
                           '<div class="progress-bar" role="progressbar" aria-valuenow="%data%" aria-valuemin="0" aria-valuemax="100" style="width: '+'%value%'+'%;">'+
                           '<span class="sr-only">60% Complete</span>'+
                           '</div>'+
-                          '</div>';
+                          '</div></li>';
 
 
 var HTMLworkStart = '<div class="work-entry"></div>';

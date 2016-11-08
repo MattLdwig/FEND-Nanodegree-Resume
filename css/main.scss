@@ -80,3 +80,22 @@ a {
     background-color: $accent;
   }
 }
+
+#skills-h3 {
+  color: $darkGrey;
+  font-size: $smallTitleSize;
+  text-align: center;
+  font-style: normal;
+  padding: 50px 0 20px 0;
+}
+
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .col-md-5 {
+    padding: 10px;
+  }
+}

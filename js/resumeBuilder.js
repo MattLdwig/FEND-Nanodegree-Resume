@@ -9,8 +9,8 @@ var bio = {
     "location" : "Narbonne, France"
   },
   "biopic" : 'images/matt_ludwig.jpg',
-  "skills" : ['HTML', 'CSS', 'Adobe Photoshop', 'Adobe Illustator', 'Adobe After Effects'],
-  "progress" : [60, 65, 80, 45, 35],
+  "skills" : ['HTML5 / CSS3','JavaScript / jQuery','Git / GitHub', 'Photoshop', 'Illustator', 'After Effects'],
+  "progress" : [60, 50, 40, 80, 45, 35],
   "message" : "Bonjour, Mon nom est Matt Ludwig. Je suis web Developpeur.<br>"+
               " Enthousiaste, curieux et passionné,<br>"+
               " j’aime mettre a profit mon esprit créatif pour <br>"+
@@ -58,15 +58,11 @@ var bio = {
         var formattedSkills = HTMLskills.replace('%data%',skill);
         var formmatedSkillsProgress = HTMLskillsProgress.replace('%data%',bio.progress[bio.skills.indexOf(skill)]);
         formmatedSkillsProgress = formmatedSkillsProgress.replace('%value%',bio.progress[bio.skills.indexOf(skill)]);
-        if(bio.skills.indexOf(skill) === 0 || bio.skills.indexOf(skill) === 3) {
-          $('#skills').append(formattedSkills + formmatedSkillsProgress);
-        }
-        else {
-          $('#skills').append(formattedSkills +formmatedSkillsProgress);
-        }
-      });
-      // Change the class of the <ul> for display <li> horizontaly
+        $('#skills').append(formattedSkills + formmatedSkillsProgress);
 
+        $('#skills').children('li').wrapAll('<div class="col-md-5"></div>');
+
+      });
     }
   }
 };
