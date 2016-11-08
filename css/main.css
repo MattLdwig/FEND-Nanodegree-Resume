@@ -80,4 +80,15 @@ a {
   #skills .col-md-5 {
     padding: 10px 0 0; }
 
+.workSection {
+  background: #020203;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.work-entry {
+  border: 1px solid #fff;
+  margin: 10px; }
+
 /*# sourceMappingURL=main.css.map */

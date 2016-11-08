@@ -66,5 +66,60 @@ var bio = {
     }
   }
 };
+
+var work = {
+  "jobs" : [
+    {
+      "employer" : "Freelance",
+      "title" : "Content Writer/rédacteur",
+      "location" : "online",
+      "dates" : "2014 - in progress",
+      "description" : "Rédaction d’articles sur divers sujets,<br>"+
+                      "tests et critiques.",
+      "icon" : "images/pen.png"
+    },
+    {
+      "employer" : "amandebasilic.com",
+      "title" : "Webmaster / WebDesigner",
+      "location" : "online",
+      "dates" : "2014 - in progress",
+      "description" : "Personnalisation d'un thème Wordpress,<br>"+
+                      "création de la charte graphique et maintien du site",
+      "icon" : "images/computer.png"
+    },
+    {
+      "employer" : "gamereview.fr",
+      "title" : "Rédacteur web",
+      "location" : "online",
+      "dates" : "2014-2015",
+      "description" : "Rédaction d'articles et de critiques de jeux vidéo,<br>"+
+                      "publication des news",
+      "icon" : "images/pen.png"
+    }
+  ],
+  "display" : function() {
+    $('#workExperience').removeClass('gray').addClass('workSection row');
+
+    for(i=0 ; i < work.jobs.length ; i++){
+      $('#workExperience').append(HTMLworkStart);
+
+      var formattedWorkEmployers = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
+      var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title);
+      var formattedWorkDate = HTMLworkDates.replace('%data%', work.jobs[i].dates);
+      var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description);
+      var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location);
+      var formattedWorkIcon = HTMLworkIcon.replace('%data%', work.jobs[i].icon);
+      $('.work-entry:last').append(formattedWorkIcon);
+      $('.work-entry:last').append(formattedWorkTitle);
+      $('.work-entry:last').append(formattedWorkDate);
+      $('.work-entry:last').append(formattedWorkDescription);
+      $('.work-entry:last').append(formattedWorkEmployers);
+      $('.work-entry:last').append(formattedWorkLocation);
+    }
+  }
+};
+
+
 $('#main').addClass('container-fluid');
 bio.display();
+work.display();

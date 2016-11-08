@@ -38,12 +38,13 @@ var HTMLskillsProgress = '<li><div class="progress">'+
                           '</div></li>';
 
 
-var HTMLworkStart = '<div class="work-entry"></div>';
+var HTMLworkStart = '<div class="work-entry col-xs-12 col-md-7"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkIcon = "<img src='%data%'>";
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
