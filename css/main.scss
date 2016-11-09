@@ -108,7 +108,7 @@ a {
   }
 }
 
-.workSection {
+.workSection, .educationSection {
   background: $darkGrey;
   color : #fff;
   display: flex;
@@ -116,7 +116,30 @@ a {
   align-items: center;
 }
 
-.work-entry {
+.work-entry, .education-entry {
   border: 1px solid #fff;
   margin: 10px;
+}
+
+.date-text {
+  float: right;
+}
+
+.onlineCoursesTitle {
+  color: #fff;
+}
+
+#mapDiv {
+  background: $lightGrey;
+  height: 600px;
+}
+#map {
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
+-moz-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
+box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
+}
+
+.connect {
+  background: $darkGrey;
+  padding: 50px;
 }

@@ -32,16 +32,22 @@ var bio = {
     // Formating Contact Informations
     var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
     $('#topContacts').append(formattedMobile);
+    $('#footerContacts').append(formattedMobile);
     var formattedEmail = HTMLemail.replace('%data%','<a class="email" href=mailto:'+bio.contacts.email+'>'+bio.contacts.email+'</a>');
     $('#topContacts').append(formattedEmail);
+    $('#footerContacts').append(formattedEmail);
     var formattedTwitter = HTMLtwitter.replace('%data%','<a class="email" href="https://twitter.com/Mattldwig">'+bio.contacts.twitter+'</a>');
     $('#topContacts').append(formattedTwitter);
+    $('#footerContacts').append(formattedTwitter);
     var formattedGithub = HTMLgithub.replace('%data%','<a class="email" href="https://github.com/Wapika">'+bio.contacts.github+'</a>');
     $('#topContacts').append(formattedGithub);
+    $('#footerContacts').append(formattedGithub);
     var formattedBlog = HTMLblog.replace('%data%',bio.contacts.blog);
     $('#topContacts').append(formattedBlog);
+    $('#footerContacts').append(formattedBlog);
     var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
     $('#topContacts').append(formattedLocation);
+    $('#footerContacts').append(formattedLocation);
     // Add Bootstrap to #topContacts
     $('#topContacts').removeClass('flex-box').addClass('col-xs-12 col-md-4 col-md-offset-2');
     // Detach #topContacts from the DOM and insert it in .topInfo row
@@ -119,7 +125,156 @@ var work = {
   }
 };
 
+var projects = {
+  "projects" : [
+    {
+      "title": "JavaScript Calculator",
+      "dates": "2016",
+      "description": "Calculateur codé en <br>JavaScript.",
+      "images": ["images/calc.png"]
+    },
+    {
+    "title": "Pomodoro Timer",
+    "dates": "2016",
+    "description": "Horloge de Pomodoro pour optimiser <br>sa productivité.",
+    "images": ["images/pomodoro.png"]
+    },
+    {
+      "title": "Random Quotes",
+      "dates": "2016",
+      "description": "Générateur de citations <br>et de couleurs complémentaires.",
+      "images": ["images/inspire.png"]
+    },
+    {
+      "title": "Weather Application",
+      "dates": "2016",
+      "description": "Application web météo <br>basée sur la localisation.",
+      "images": ["images/weather.png"]
+    },
+    {
+      "title": "Wikipedia Viewer",
+      "dates": "2016",
+      "description": "Page de recherche <br>utilisant l’API Wikipédia.",
+      "images": ["images/wikipedia.png"]
+    },
+    {
+      "title": "Portfolio",
+      "dates": "2016",
+      "description": "Réalisation d’un portfolio <br>comme exercice de webDesign.",
+      "images": ["images/portfolio.png"]
+    }
+  ],
+  "display" : function() {
+    $('#projects').addClass('projectsSection row');
+
+    for(i=0 ; i < projects.projects.length ; i++){
+      $('#projects').append(HTMLprojectStart);
+
+      var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
+      var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
+      var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
+      var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].images);
+      $('.project-entry:last').append(formattedProjectTitle);
+      $('.project-entry:last').append(formattedProjectImage);
+      $('.project-entry:last').append(formattedProjectDates);
+      $('.project-entry:last').append(formattedProjectDescription);
+    }
+      $('.project-entry').addClass('col-md-4');
+  }
+}
+
+var education = {
+  "schools" : [
+    {
+      "name": "CNED",
+      "location": "correspondance",
+      "degree": "Capacité en droit",
+      "dates": "2009"
+    },
+    {
+      "name": "CNED",
+      "location": "correspondance",
+      "degree": "Terminale Littéraire",
+      "dates": "2008"
+    }
+  ],
+  "onlineCourses" : [
+    {
+      "title": "Front-End Web Developer Nanodegree",
+      "school": "Udacity",
+      "dates": "in progress",
+      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
+    },
+    {
+      "title": "Full Stack Web Development Certification",
+      "school": "Free Code Camp",
+      "dates": "in progress",
+      "url": "https://www.freecodecamp.com/"
+    },
+    {
+      "title": "Front-End Formation",
+      "school": "CodeSchool",
+      "dates": "2016",
+      "url": "https://www.codeschool.com/courses/front-end-formations"
+    },
+    {
+      "title": "Introduction au marketing",
+      "school": "HEC Montréal",
+      "dates": "2015",
+      "url": "https://cours.edulib.org/courses/HEC/MKT-101/H2015/about"
+    },
+    {
+      "title": "Découvrir la science politique",
+      "school": "Université catholique de Louvain",
+      "dates": "2015",
+      "url": "https://www.edx.org/course/decouvrir-la-science-politique-louvainx-louv3x-2"
+    }
+  ],
+  "display" : function(){
+
+    $('#education').addClass('educationSection row');
+
+    for(i=0 ; i < education.schools.length ; i++){
+
+      var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[i].name);
+      var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
+      var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
+      var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
+      var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[i].major);
+
+      $('#education').append(HTMLschoolStart);
+
+      $('.education-entry:last').append(formattedSchoolName).append(formattedSchoolDegree).append(formattedSchoolDates).append(formattedSchoolLocation);
+    }
+
+    $('#education').append('<h3 class="onlineCoursesTitle">Online Courses</h3>');
+
+    for(i=0 ; i < education.onlineCourses.length ; i++){
+      var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title);
+      var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school);
+      var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[i].dates);
+      var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.onlineCourses[i].location);
+      var formattedOnlineUrl = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
+      $('#education').append(HTMLschoolStart);
+
+      $('.education-entry:last').append(formattedOnlineTitle).append(formattedOnlineSchool).append(formattedOnlineDates).append(formattedOnlineUrl);
+    }
+
+  }
+};
+
+function replaceWithElements(assign, elements) {
+  var content = $(assign).html();
+  $(assign).replaceWith(elements + content);
+}
+replaceWithElements('#lets-connect', '<footer>');
+$('footer').addClass('connect');
 
 $('#main').addClass('container-fluid');
+$('#mapDiv').append(googleMap);
+
+
 bio.display();
 work.display();
+projects.display();
+education.display();
