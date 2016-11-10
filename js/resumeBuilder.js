@@ -6,7 +6,7 @@ var bio = {
     "email" : "mattldwig@gmail.com",
     "github" : "Wapika",
     "twitter" : "@mattldwig",
-    "location" : "Narbonne, France"
+    "location" : "Narbonne"
   },
   "biopic" : 'images/matt_ludwig.jpg',
   "skills" : ['HTML5 / CSS3','JavaScript / jQuery','Git / GitHub', 'Photoshop', 'Illustator', 'After Effects'],
@@ -22,7 +22,7 @@ var bio = {
     // Message
     var formattedMsg = HTMLwelcomeMsg.replace('%data%',bio.message);
     $('#header').prepend(rowHeader);
-    $('.topInfo').prepend(formattedMsg);
+    $('.top-info').prepend(formattedMsg);
     $('.welcome-message').html($('.welcome-message').html().replace(/(Bonjour,)/,'<div class="intro">$1</div>'));
     $('.welcome-message').html($('.welcome-message').html().replace(/(,)/,'<span class="comma">$1</span>'));
     $('.welcome-message').html($('.welcome-message').html().replace(/(Matt Ludwig)+/g, formattedHeaderName));
@@ -31,29 +31,29 @@ var bio = {
 
     // Formating Contact Informations
     var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
-    $('#topContacts').append(formattedMobile);
+    $('#top-contacts').append(formattedMobile);
     $('#footerContacts').append(formattedMobile);
     var formattedEmail = HTMLemail.replace('%data%','<a class="email" href=mailto:'+bio.contacts.email+'>'+bio.contacts.email+'</a>');
-    $('#topContacts').append(formattedEmail);
+    $('#top-contacts').append(formattedEmail);
     $('#footerContacts').append(formattedEmail);
     var formattedTwitter = HTMLtwitter.replace('%data%','<a class="email" href="https://twitter.com/Mattldwig">'+bio.contacts.twitter+'</a>');
-    $('#topContacts').append(formattedTwitter);
+    $('#top-contacts').append(formattedTwitter);
     $('#footerContacts').append(formattedTwitter);
     var formattedGithub = HTMLgithub.replace('%data%','<a class="email" href="https://github.com/Wapika">'+bio.contacts.github+'</a>');
-    $('#topContacts').append(formattedGithub);
+    $('#top-contacts').append(formattedGithub);
     $('#footerContacts').append(formattedGithub);
     var formattedBlog = HTMLblog.replace('%data%',bio.contacts.blog);
-    $('#topContacts').append(formattedBlog);
+    $('#top-contacts').append(formattedBlog);
     $('#footerContacts').append(formattedBlog);
     var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
-    $('#topContacts').append(formattedLocation);
+    $('#top-contacts').append(formattedLocation);
     $('#footerContacts').append(formattedLocation);
-    // Add Bootstrap to #topContacts
-    $('#topContacts').removeClass('flex-box').addClass('col-xs-12 col-md-4 col-md-offset-2');
-    // Detach #topContacts from the DOM and insert it in .topInfo row
-    var x = $('#topContacts');
-    $('#topContacts').detach();
-    $('.topInfo').append(x);
+    // Add Bootstrap to #top-contacts
+    $('#top-contacts').removeClass('flex-box').addClass('col-xs-12 col-md-4 col-md-offset-2');
+    // Detach #top-contacts from the DOM and insert it in .top-info row
+    var x = $('#top-contacts');
+    $('#top-contacts').detach();
+    $('.top-info').append(x);
 
     $('#header').append(rowSkills);
 
@@ -104,7 +104,7 @@ var work = {
     }
   ],
   "display" : function() {
-    $('#workExperience').removeClass('gray').addClass('workSection row');
+    $('#workExperience').removeClass('gray').addClass('work-section row');
 
     for(i=0 ; i < work.jobs.length ; i++){
       $('#workExperience').append(HTMLworkStart);
@@ -165,7 +165,7 @@ var projects = {
     }
   ],
   "display" : function() {
-    $('#projects').addClass('projectsSection row');
+    $('#projects').addClass('projects-section row');
 
     for(i=0 ; i < projects.projects.length ; i++){
       $('#projects').append(HTMLprojectStart);
@@ -203,7 +203,7 @@ var education = {
       "title": "Front-End Web Developer Nanodegree",
       "school": "Udacity",
       "dates": "in progress",
-      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
+      "url": "https://www.udacity.com/"
     },
     {
       "title": "Full Stack Web Development Certification",
@@ -215,24 +215,24 @@ var education = {
       "title": "Front-End Formation",
       "school": "CodeSchool",
       "dates": "2016",
-      "url": "https://www.codeschool.com/courses/front-end-formations"
+      "url": "https://www.codeschool.com/"
     },
     {
       "title": "Introduction au marketing",
       "school": "HEC Montréal",
       "dates": "2015",
-      "url": "https://cours.edulib.org/courses/HEC/MKT-101/H2015/about"
+      "url": "https://cours.edulib.org/"
     },
     {
       "title": "Découvrir la science politique",
       "school": "Université catholique de Louvain",
       "dates": "2015",
-      "url": "https://www.edx.org/course/decouvrir-la-science-politique-louvainx-louv3x-2"
+      "url": "https://www.edx.org/"
     }
   ],
   "display" : function(){
 
-    $('#education').addClass('educationSection row');
+    $('#education').addClass('education-section row');
 
     for(i=0 ; i < education.schools.length ; i++){
 
@@ -271,13 +271,13 @@ function replaceWithElements(assign, elements) {
 }
 replaceWithElements('#lets-connect', '<footer class="connect">');
 replaceWithElements('#header', '<header id="header" class="center-content clear-fix">');
-replaceWithElements('#workExperience', '<section id="workExperience" class="workSection row">');
+replaceWithElements('#workExperience', '<section id="workExperience" class="work-section row">');
 replaceWithElements('#projects', '<section id="projects">');
 replaceWithElements('#education', '<section id="education">');
-replaceWithElements('#mapDiv', '<section id="mapDiv">');
+replaceWithElements('#map-div', '<section id="map-div">');
 
 
-$('#mapDiv').append(googleMap);
+$('#map-div').append(googleMap);
 $('.connect h2').removeClass('orange');
 $('#footerContacts').removeClass('flex-box');
 

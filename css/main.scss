@@ -1,12 +1,16 @@
-$lightGrey : #e6e3e1;
-$middleGrey : #45423e;
-$darkGrey : #020203;
-$accent : #ec008c;
-$whiteText: #f1f1f1;
+// Variables
 
-$largeTitleSize : 71px;
-$smallTitleSize : 32px;
-$bodySize : 18px;
+$light-grey : #e6e3e1;
+$middle-grey : #45423e;
+$dark-grey : #020203;
+$accent : #ec008c;
+$white-text: #f1f1f1;
+
+$large-title : 71px;
+$small-title : 32px;
+$body-size : 18px;
+
+// Mixins
 
 @mixin flex-box($dir,$al){
   display: flex;
@@ -14,14 +18,7 @@ $bodySize : 18px;
   justify-content: $al;
 }
 
-body {
-  font-size: $bodySize;
-  color: $middleGrey;
-}
-
-.container-fluid {
-  padding: 0;
-}
+// General
 
 body,
 div,
@@ -36,10 +33,30 @@ h5,
 h6 {
   font-family: 'Source Code Pro', monospace;
 }
+
+body {
+  font-size: $body-size;
+  color: $middle-grey;
+}
+
 h2 {
-  font-size: $smallTitleSize;
+  font-size: $small-title;
   font-weight: normal;
   color: inherit;
+}
+
+a {
+  color: $middle-grey;
+  text-decoration: none;
+}
+
+span {
+  padding: 0;
+}
+
+.icon {
+  max-width: 70px;
+  max-height: 72px;
 }
 
 .bold-text {
@@ -49,39 +66,47 @@ h2 {
   padding: 0;
 }
 
-a {
-  color: $middleGrey;
-  text-decoration: none;
-}
-
-#header {
-  background: $lightGrey;
-  .topInfo {
-    display: flex;
-    align-items: flex-end;
-    .welcome-message {
-      line-height: 1.7;
-      color: $middleGrey;
-        font-style: normal;
-      .intro {
-        color: $darkGrey;
-        font-size: 71px;
-        font-weight: 900;
-      }
-        .comma {
-          color: $accent;
-        }
-      #name, .role {
-        color: $middleGrey;
-        font-weight: bold;
-        font-size: $bodySize;
-        line-height: 1.7;
-      }
-    }
+.flex-item {
+  @include flex-box(row,space-between);
+  a {
+    margin: 0;
   }
 }
 
-#topContacts {
+// Sections
+
+.container-fluid {
+  padding: 0;
+}
+
+#header {
+  background: $light-grey;
+
+}
+.top-info {
+  display: flex;
+  align-items: flex-end;
+}
+.welcome-message {
+  line-height: 1.7;
+  color: $middle-grey;
+    font-style: normal;
+}
+.intro {
+  color: $dark-grey;
+  font-size: 71px;
+  font-weight: 900;
+}
+.comma {
+  color: $accent;
+}
+#name, .role {
+  color: $middle-grey;
+  font-weight: bold;
+  font-size: $body-size;
+  line-height: 1.7;
+}
+#top-contacts {
   display: flex;
   flex-direction: column;
 }
@@ -98,8 +123,8 @@ a {
 }
 
 #skills-h3 {
-  color: $darkGrey;
-  font-size: $smallTitleSize;
+  color: $dark-grey;
+  font-size: $small-title;
   text-align: center;
   font-style: normal;
   padding: 20px;
@@ -120,23 +145,23 @@ a {
   }
 }
 
-.workSection, .educationSection {
-  background: $darkGrey;
-  color : $whiteText;
+.work-section, .education-section {
+  background: $dark-grey;
+  color : $white-text;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
 }
-.projectsSection, #mapDiv {
+.projects-section, #map-div {
   padding: 50px 0;
 }
 
 .work-entry , .education-entry {
-  border: 1px solid $whiteText;
+  border: 1px solid $white-text;
   margin: 10px;
   p, .date-text, .location-text,a {
-    color: $whiteText;
+    color: $white-text;
   }
   a {
     font-weight: bold;
@@ -151,7 +176,7 @@ a {
   float: right;
   order: -1;
 }
-#projects, #mapDiv {
+#projects, #map-div {
   text-align: center;
 }
 
@@ -171,8 +196,8 @@ a {
   color: #fff;
 }
 
-#mapDiv {
-  background: $lightGrey;
+#map-div {
+  background: $light-grey;
   height: 600px;
   @include flex-box(column, center);
 
@@ -190,10 +215,17 @@ box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
 .connect {
   @include flex-box(column, center) ;
   align-items: center;
-  background: $darkGrey;
+  background: $dark-grey;
   padding: 50px;
-  color: $whiteText;
+  color: $white-text;
     a {
       color: inherit;
     }
+}
+
+
+@media screen and (max-width: 645px) {
+  .work-entry, .education-entry {
+    @include flex-box(column,center);
+  }
 }

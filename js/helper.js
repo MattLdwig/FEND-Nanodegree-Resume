@@ -15,7 +15,7 @@ replace the %data% placeholder text you see in them.
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span class="role">%data%</span>';
 
-var rowHeader = '<div class="topInfo row"></div>';
+var rowHeader = '<div class="top-info row"></div>';
 var rowSkills = '<div class="skills row"></div>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="bold-text">%contact%</span><span class="text">%data%</span></li>';
@@ -38,13 +38,13 @@ var HTMLskillsProgress = '<li><div class="progress">'+
                           '</div></li>';
 
 
-var HTMLworkStart = '<div class="work-entry col-xs-12 col-md-7"></div>';
+var HTMLworkStart = '<div class="work-entry col-xs-10 col-md-7"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
-var HTMLworkIcon = "<img src='%data%'>";
+var HTMLworkIcon = "<img class='icon' src='%data%'>";
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#" class="projectTitle">%data%</a>';
@@ -52,7 +52,7 @@ var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
-var HTMLschoolStart = '<div class="education-entry col-xs-12 col-md-7"></div>';
+var HTMLschoolStart = '<div class="education-entry col-xs-10 col-md-7"></div>';
 var HTMLschoolName = '<a href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
@@ -142,7 +142,7 @@ function initializeMap() {
 
   /*
   For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
+  appended to #map-div in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
   map.setOptions({styles: styles});
