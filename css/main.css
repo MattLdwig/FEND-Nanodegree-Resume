@@ -18,6 +18,11 @@ h5,
 h6 {
   font-family: 'Source Code Pro', monospace; }
 
+h2 {
+  font-size: 32px;
+  font-weight: normal;
+  color: inherit; }
+
 .bold-text {
   font-weight: bold;
   display: inline-block;
@@ -70,7 +75,7 @@ a {
   padding: 20px; }
 
 .skills {
-  margin-top: 50px; }
+  margin: 100px 0; }
 
 #skills {
   display: flex;
@@ -82,24 +87,52 @@ a {
 
 .workSection, .educationSection {
   background: #020203;
-  color: #fff;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0; }
+
+.projectsSection, #mapDiv {
+  padding: 50px 0; }
+
+.work-entry, .education-entry {
+  border: 1px solid #f1f1f1;
+  margin: 10px; }
+  .work-entry p, .work-entry .date-text, .work-entry .location-text, .work-entry a, .education-entry p, .education-entry .date-text, .education-entry .location-text, .education-entry a {
+    color: #f1f1f1; }
+  .work-entry a, .education-entry a {
+    font-weight: bold; }
+
+.education-entry, .work-entry, .project-entry {
+  padding: 2%; }
+
+.date-text {
+  float: right;
+  order: -1; }
+
+#projects, #mapDiv {
+  text-align: center; }
+
+.project-entry {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
-.work-entry, .education-entry {
-  border: 1px solid #fff;
-  margin: 10px; }
-
-.date-text {
-  float: right; }
+.projectTitle {
+  font-size: 1.3em; }
 
 .onlineCoursesTitle {
   color: #fff; }
 
 #mapDiv {
   background: #e6e3e1;
-  height: 600px; }
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  #mapDiv h2 {
+    margin: 0 0 15px 0; }
 
 #map {
   -webkit-box-shadow: 0px 0px 5px 2px rgba(69, 66, 62, 0.3);
@@ -107,7 +140,14 @@ a {
   box-shadow: 0px 0px 5px 2px rgba(69, 66, 62, 0.3); }
 
 .connect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #020203;
-  padding: 50px; }
+  padding: 50px;
+  color: #f1f1f1; }
+  .connect a {
+    color: inherit; }
 
 /*# sourceMappingURL=main.css.map */

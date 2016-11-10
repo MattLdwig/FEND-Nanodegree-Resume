@@ -2,10 +2,17 @@ $lightGrey : #e6e3e1;
 $middleGrey : #45423e;
 $darkGrey : #020203;
 $accent : #ec008c;
+$whiteText: #f1f1f1;
 
 $largeTitleSize : 71px;
 $smallTitleSize : 32px;
 $bodySize : 18px;
+
+@mixin flex-box($dir,$al){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $al;
+}
 
 body {
   font-size: $bodySize;
@@ -28,6 +35,11 @@ h4,
 h5,
 h6 {
   font-family: 'Source Code Pro', monospace;
+}
+h2 {
+  font-size: $smallTitleSize;
+  font-weight: normal;
+  color: inherit;
 }
 
 .bold-text {
@@ -94,7 +106,7 @@ a {
 }
 
 .skills {
-  margin-top: 50px;
+  margin: 100px 0;
 }
 
 #skills {
@@ -110,19 +122,49 @@ a {
 
 .workSection, .educationSection {
   background: $darkGrey;
-  color : #fff;
+  color : $whiteText;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+.projectsSection, #mapDiv {
+  padding: 50px 0;
+}
+
+.work-entry , .education-entry {
+  border: 1px solid $whiteText;
+  margin: 10px;
+  p, .date-text, .location-text,a {
+    color: $whiteText;
+  }
+  a {
+    font-weight: bold;
+  }
+}
+
+.education-entry, .work-entry, .project-entry {
+  padding: 2%;
+}
+
+.date-text {
+  float: right;
+  order: -1;
+}
+#projects, #mapDiv {
+  text-align: center;
+}
+
+
+
+.project-entry {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.work-entry, .education-entry {
-  border: 1px solid #fff;
-  margin: 10px;
-}
-
-.date-text {
-  float: right;
+.projectTitle {
+  font-size: 1.3em;
 }
 
 .onlineCoursesTitle {
@@ -132,7 +174,13 @@ a {
 #mapDiv {
   background: $lightGrey;
   height: 600px;
+  @include flex-box(column, center);
+
+  h2 {
+    margin: 0 0 15px 0;
+  }
 }
+
 #map {
   -webkit-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
 -moz-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
@@ -140,6 +188,12 @@ box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
 }
 
 .connect {
+  @include flex-box(column, center) ;
+  align-items: center;
   background: $darkGrey;
   padding: 50px;
+  color: $whiteText;
+    a {
+      color: inherit;
+    }
 }

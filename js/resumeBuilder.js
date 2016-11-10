@@ -136,7 +136,7 @@ var projects = {
     {
     "title": "Pomodoro Timer",
     "dates": "2016",
-    "description": "Horloge de Pomodoro pour optimiser <br>sa productivité.",
+    "description": "Horloge de Pomodoro optimisant <br>la productivité.",
     "images": ["images/pomodoro.png"]
     },
     {
@@ -179,7 +179,7 @@ var projects = {
       $('.project-entry:last').append(formattedProjectDates);
       $('.project-entry:last').append(formattedProjectDescription);
     }
-      $('.project-entry').addClass('col-md-4');
+      $('.project-entry').addClass('col-xs-12 col-sm-6 col-md-4');
   }
 }
 
@@ -263,15 +263,23 @@ var education = {
   }
 };
 
+$('#main').addClass('container-fluid');
+
 function replaceWithElements(assign, elements) {
   var content = $(assign).html();
   $(assign).replaceWith(elements + content);
 }
-replaceWithElements('#lets-connect', '<footer>');
-$('footer').addClass('connect');
+replaceWithElements('#lets-connect', '<footer class="connect">');
+replaceWithElements('#header', '<header id="header" class="center-content clear-fix">');
+replaceWithElements('#workExperience', '<section id="workExperience" class="workSection row">');
+replaceWithElements('#projects', '<section id="projects">');
+replaceWithElements('#education', '<section id="education">');
+replaceWithElements('#mapDiv', '<section id="mapDiv">');
 
-$('#main').addClass('container-fluid');
+
 $('#mapDiv').append(googleMap);
+$('.connect h2').removeClass('orange');
+$('#footerContacts').removeClass('flex-box');
 
 
 bio.display();
