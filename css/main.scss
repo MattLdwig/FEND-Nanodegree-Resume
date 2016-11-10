@@ -59,6 +59,14 @@ span {
   max-height: 72px;
 }
 
+.biopic {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  padding: 0;
+}
+
 .bold-text {
   font-weight: bold;
   display: inline-block;
@@ -109,6 +117,7 @@ span {
 #top-contacts {
   display: flex;
   flex-direction: column;
+  align-items: baseline;
 }
 
 .progress {

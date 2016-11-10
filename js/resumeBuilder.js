@@ -8,7 +8,7 @@ var bio = {
     "twitter" : "@mattldwig",
     "location" : "Narbonne"
   },
-  "biopic" : 'images/matt_ludwig.jpg',
+  "biopic" : 'images/mw-logo.svg',
   "skills" : ['HTML5 / CSS3','JavaScript / jQuery','Git / GitHub', 'Photoshop', 'Illustator', 'After Effects'],
   "progress" : [60, 50, 40, 80, 45, 35],
   "message" : "Bonjour, Mon nom est Matt Ludwig. Je suis web Developpeur.<br>"+
@@ -19,15 +19,17 @@ var bio = {
   "display" : function() {
     var formattedHeaderName = HTMLheaderName.replace('%data%',bio.name);
     var formattedHeaderRole = HTMLheaderRole.replace('%data%',bio.role);
+    var formattedbioPic = HTMLbioPic.replace('%data%',bio.biopic);
     // Message
     var formattedMsg = HTMLwelcomeMsg.replace('%data%',bio.message);
     $('#header').prepend(rowHeader);
     $('.top-info').prepend(formattedMsg);
+
     $('.welcome-message').html($('.welcome-message').html().replace(/(Bonjour,)/,'<div class="intro">$1</div>'));
     $('.welcome-message').html($('.welcome-message').html().replace(/(,)/,'<span class="comma">$1</span>'));
     $('.welcome-message').html($('.welcome-message').html().replace(/(Matt Ludwig)+/g, formattedHeaderName));
     $('.welcome-message').html($('.welcome-message').html().replace(/(web Developpeur)+/g, formattedHeaderRole));
-    $('.welcome-message').addClass('cox-xs-12 col-md-6');
+    $('.welcome-message').addClass('col-xs-12 col-md-6');
 
     // Formating Contact Informations
     var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
@@ -49,11 +51,11 @@ var bio = {
     $('#top-contacts').append(formattedLocation);
     $('#footerContacts').append(formattedLocation);
     // Add Bootstrap to #top-contacts
-    $('#top-contacts').removeClass('flex-box').addClass('col-xs-12 col-md-4 col-md-offset-2');
+    $('#top-contacts').removeClass('flex-box').addClass('col-xs-12 col-md-6');
     // Detach #top-contacts from the DOM and insert it in .top-info row
-    var x = $('#top-contacts');
+    var topContacts = $('#top-contacts');
     $('#top-contacts').detach();
-    $('.top-info').append(x);
+    $('.top-info').append(topContacts);
 
     $('#header').append(rowSkills);
 
