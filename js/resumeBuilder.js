@@ -6,6 +6,7 @@ var bio = {
         "email": "mattldwig@gmail.com",
         "github": "Wapika",
         "twitter": "@mattldwig",
+        "blog": "mattldwig.com",
         "location": "Narbonne"
     },
     "biopic": 'images/mw-logo.svg',
@@ -23,6 +24,7 @@ var bio = {
         // Welcome message
         var formattedMsg = HTMLwelcomeMsg.replace('%data%', bio.message);
         $('#header').prepend(rowHeader);
+        $('#header').append(formattedbioPic);
         $('.top-info').prepend(formattedMsg);
         // Format welcome message and replace my name and my role by the variables
         $('.welcome-message').html($('.welcome-message').html().replace(/(Bonjour,)/, '<div class="intro">$1</div>'));
@@ -30,7 +32,6 @@ var bio = {
         $('.welcome-message').html($('.welcome-message').html().replace(/(Matt Ludwig)+/g, formattedHeaderName));
         $('.welcome-message').html($('.welcome-message').html().replace(/(web Developpeur)+/g, formattedHeaderRole));
         $('.welcome-message').addClass('col-xs-12 col-md-6');
-
         // Formating Contact Informations and append in header and footer
         var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
         $('#top-contacts').append(formattedMobile);
@@ -50,24 +51,23 @@ var bio = {
         var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
         $('#top-contacts').append(formattedLocation);
         $('#footerContacts').append(formattedLocation);
-        // Add Bootstrap to #top-contacts
-        $('#top-contacts').removeClass('flex-box').addClass('col-xs-12 col-md-6');
+        // Add Bootstrap class to #top-contacts
         // Detach #top-contacts from the DOM and insert it in .top-info row
         var topContacts = $('#top-contacts');
         $('#top-contacts').detach();
         $('.top-info').append(topContacts);
         // Format Skills section
         $('#header').append(rowSkills);
-        $('.skills').append(HTMLskillsStart);
+        $('.skills-section').append(HTMLskillsStart);
         $('#skills').wrap('<div class="col-xs-12" />');
-        // Append skills in Skills section
+        // Append skills in Skills section and wrap them in <li>
         if (bio.skills.length > 0) {
             bio.skills.forEach(function(skill) {
                 var formattedSkills = HTMLskills.replace('%data%', skill);
                 var formmatedSkillsProgress = HTMLskillsProgress.replace('%data%', bio.progress[bio.skills.indexOf(skill)]);
                 formmatedSkillsProgress = formmatedSkillsProgress.replace('%value%', bio.progress[bio.skills.indexOf(skill)]);
                 $('#skills').append(formattedSkills + formmatedSkillsProgress);
-                $('#skills').children('.label-text, .progress').wrapAll('<li class="col-xs-12 col-md-5"></li>');
+                $('#skills').children('.label-text, .progress').wrapAll('<li class="col-xs-12 col-md-5 list-skills"></li>');
             });
         }
     }
@@ -100,17 +100,14 @@ var work = {
         "icon": "images/pen.png"
     }],
     "display": function() {
-        $('#workExperience').removeClass('gray').addClass('work-section row');
-
         for (i = 0; i < work.jobs.length; i++) {
-            $('#workExperience').append(HTMLworkStart);
-
             var formattedWorkEmployers = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
             var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title);
             var formattedWorkDate = HTMLworkDates.replace('%data%', work.jobs[i].dates);
             var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description);
             var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location);
             var formattedWorkIcon = HTMLworkIcon.replace('%data%', work.jobs[i].icon);
+            $('#workExperience').append(HTMLworkStart);
             $('.work-entry:last').append(formattedWorkIcon);
             $('.work-entry:last').append(formattedWorkTitle);
             $('.work-entry:last').append(formattedWorkDate);
@@ -154,20 +151,18 @@ var projects = {
         "images": ["images/portfolio.png"]
     }],
     "display": function() {
-        $('#projects').addClass('projects-section row');
-
         for (i = 0; i < projects.projects.length; i++) {
-            $('#projects').append(HTMLprojectStart);
-
             var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
             var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
             var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
             var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].images);
+            $('#projects').append(HTMLprojectStart);
             $('.project-entry:last').append(formattedProjectTitle);
             $('.project-entry:last').append(formattedProjectImage);
             $('.project-entry:last').append(formattedProjectDates);
             $('.project-entry:last').append(formattedProjectDescription);
         }
+        // Add boostrap class to project-entry div
         $('.project-entry').addClass('col-xs-12 col-sm-6 col-md-4');
     }
 };
@@ -175,13 +170,17 @@ var projects = {
 var education = {
     "schools": [{
         "name": "CNED",
-        "location": "correspondance",
+        "location": "Castelnaudary",
         "degree": "Capacité en droit",
+        "majors": ["Law"],
+        "url": "https://www.cned.fr",
         "dates": "2009"
     }, {
-        "name": "CNED",
-        "location": "correspondance",
-        "degree": "Terminale Littéraire",
+        "name": "Terminale Littéraire",
+        "location": "Revel, France",
+        "degree": "Bac L",
+        "majors": ["Letters"],
+        "url": "http://vincent-auriol.ecollege.haute-garonne.fr/",
         "dates": "2008"
     }],
     "onlineCourses": [{
@@ -211,24 +210,17 @@ var education = {
         "url": "https://www.edx.org/"
     }],
     "display": function() {
-
-        $('#education').addClass('education-section row');
-
         for (i = 0; i < education.schools.length; i++) {
-
             var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[i].name);
+            formattedSchoolName = formattedSchoolName.replace('#',education.schools[i].url);
             var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
             var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
             var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
-            var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[i].major);
-
+            var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors);
             $('#education').append(HTMLschoolStart);
-
-            $('.education-entry:last').append(formattedSchoolName).append(formattedSchoolDegree).append(formattedSchoolDates).append(formattedSchoolLocation);
-        }
-
+            $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree + formattedSchoolMajor + formattedSchoolDates + formattedSchoolLocation);
+        };
         $('#education').append('<h3 class="onlineCoursesTitle">Online Courses</h3>');
-
         for (i = 0; i < education.onlineCourses.length; i++) {
             var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title);
             var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school);
@@ -236,15 +228,12 @@ var education = {
             var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.onlineCourses[i].location);
             var formattedOnlineUrl = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
             $('#education').append(HTMLschoolStart);
-
-            $('.education-entry:last').append(formattedOnlineTitle).append(formattedOnlineSchool).append(formattedOnlineDates).append(formattedOnlineUrl);
+            $('.education-entry:last').append(formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineUrl);
         }
 
     }
 };
-
-$('#main').addClass('container-fluid');
-
+// Replace div with HTML elements
 function replaceWithElements(assign, elements) {
     var content = $(assign).html();
     $(assign).replaceWith(elements + content);
@@ -255,14 +244,25 @@ replaceWithElements('#workExperience', '<section id="workExperience" class="work
 replaceWithElements('#projects', '<section id="projects">');
 replaceWithElements('#education', '<section id="education">');
 replaceWithElements('#map-div', '<section id="map-div">');
-
-
+// Change classes for Bootstrap classes
+$('#main').addClass('container-fluid');
+$('#top-contacts').removeClass('flex-box').addClass('col-xs-12 col-md-6');
+$('#projects').addClass('projects-section');
+$('#workExperience').removeClass('gray').addClass('work-section');
+$('#education').addClass('education-section');
+// Append Google Map
 $('#map-div').append(googleMap);
+// Remove unused classes
 $('.connect h2').removeClass('orange');
+$('.connect h2').removeClass('center-text').addClass('footer-title');
 $('#footerContacts').removeClass('flex-box');
 
-
+// Display bio, work, projects and education content
 bio.display();
 work.display();
 projects.display();
 education.display();
+
+$('#education').children().wrapAll('<div class="education row"></div>');
+$('#workExperience').children().wrapAll('<div class="work row"></div>');
+$('#projects').children().wrapAll('<div class="project row"></div>');

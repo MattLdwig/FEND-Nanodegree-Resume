@@ -16,7 +16,7 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span class="role">%data%</span>';
 
 var rowHeader = '<div class="top-info row"></div>';
-var rowSkills = '<div class="skills row"></div>';
+var rowSkills = '<div class="skills-section row"></div>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="bold-text">%contact%</span><span class="text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="bold-text">Mobile</span><span class="text">%data%</span></li>';
@@ -39,7 +39,7 @@ var HTMLskillsProgress = '<div class="progress">'+
 
 
 var HTMLworkStart = '<div class="work-entry col-xs-10 col-md-7"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<a class="employer-link" href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
@@ -53,17 +53,17 @@ var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry col-xs-10 col-md-7"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a class="school-link" href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineTitle = '<a class="course-title" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<br><a class="course-link" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -190,12 +190,13 @@ function initializeMap() {
     var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
-
+    var pinImage = new google.maps.MarkerImage("http://www.googlemapsmarkers.com/v1/45423E/");
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
+      icon: pinImage,
     });
 
     // infoWindows are the little helper windows that open when you click

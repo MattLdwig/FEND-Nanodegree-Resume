@@ -61,14 +61,6 @@ span {
   order: -1;
 }
 
-.biopic {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
-  padding: 0;
-}
-
 .bold-text {
   font-weight: bold;
   display: inline-block;
@@ -89,48 +81,73 @@ span {
   padding: 0;
 }
 
+.education,
+.work {
+  @include flex-box(column,center);
+  align-items: center;
+  width: 100%;
+}
+
+.projects-section,
+#map-div {
+  padding: 50px 0;
+}
+
+/* HEADER */
+
 #header {
   background: $light-grey;
+}
 
-}
-.top-info {
-  display: flex;
-  align-items: flex-end;
-}
-.welcome-message {
-  line-height: 1.7;
-  color: $middle-grey;
-    font-style: normal;
-}
-.intro {
-  color: $dark-grey;
-  font-size: 71px;
-  font-weight: 900;
-}
-.comma {
-  color: $accent;
-}
-#name, .role {
-  color: $middle-grey;
-  font-weight: bold;
-  font-size: $body-size;
-  line-height: 1.7;
-}
 #top-contacts {
   display: flex;
   flex-direction: column;
   align-items: baseline;
 }
 
-.progress {
-  width: 20em;
-  background-color: #c9c2bc;
-  -webkit-box-shadow : none;
-  box-shadow: none;
-  height: 15px;
-  .progress-bar {
-    background-color: $accent;
-  }
+.biopic {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  opacity: 0.2;
+}
+
+.top-info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.welcome-message {
+  line-height: 1.7;
+  color: $middle-grey;
+    font-style: normal;
+}
+
+.intro {
+  color: $dark-grey;
+  font-size: 71px;
+  font-weight: 900;
+}
+
+.comma {
+  color: $accent;
+}
+
+#name,
+.role {
+  color: $middle-grey;
+  font-weight: bold;
+  font-size: $body-size;
+  line-height: 1.7;
+}
+
+/* SKILLS */
+
+#skills {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
 }
 
 #skills-h3 {
@@ -141,45 +158,51 @@ span {
   padding: 20px;
 }
 
-.skills {
+.progress {
+  width: 20em;
+  background-color: #c9c2bc;
+  -webkit-box-shadow : none;
+  box-shadow: none;
+  height: 15px;
+}
+
+.progress-bar {
+  background-color: $accent;
+}
+
+.skills-section {
   margin: 100px 0;
 }
 
-#skills {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-
-  .col-md-5 {
-    padding: 10px 0 0;
-  }
+.list-skills {
+  padding: 10px 0 0;
 }
 
-.work-section, .education-section {
+/* WORK */
+
+.work-section,
+.education-section {
   background: $dark-grey;
   color : $white-text;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 0;
-}
-.projects-section, #map-div {
   padding: 50px 0;
 }
 
-.work-entry , .education-entry {
+.work-entry,
+.education-entry {
   border: 1px solid $white-text;
   margin: 10px;
-  p, .date-text, .location-text,a {
-    color: $white-text;
-  }
-  a {
-    font-weight: bold;
-  }
+  color: $white-text;
+}
+.employer-link,
+.school-link,
+.course-title,
+.course-link {
+  color: $white-text;
 }
 
-.education-entry, .work-entry, .project-entry {
+.education-entry,
+.work-entry,
+.project-entry {
   padding: 2%;
 }
 
@@ -187,11 +210,11 @@ span {
   float: right;
   order: -1;
 }
-#projects, #map-div {
+
+#projects,
+#map-div {
   text-align: center;
 }
-
-
 
 .project-entry {
   display: flex;
@@ -219,8 +242,8 @@ span {
 
 #map {
   -webkit-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
--moz-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
+  box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
 }
 
 .connect {
@@ -233,27 +256,37 @@ box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
       color: inherit;
     }
 }
-.center-text {
+.footer-title {
   padding: 20px 0;
 }
 
+/* MEDIA QUERIES */
 
-@media screen and (max-width: 645px) {
-  .work-entry, .education-entry {
-    @include flex-box(column,center);
+@media screen and (max-width: 1200px) {
+  .top-info {
+    align-items: baseline;
+    flex-direction: column;
+  }
+  #top-contacts {
+    margin-top: 20px;
   }
 }
+
 @media screen and (max-width: 992px) {
   .progress {
-    width: inherit;;
+    width: inherit;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .work-entry,
+  .education-entry {
+    @include flex-box(column,center);
   }
 }
 
 @media screen and (max-width: 400px) {
   .flex-item {
     flex-direction: column;
-  }
-  .progress {
-    width: 16em;
   }
 }
