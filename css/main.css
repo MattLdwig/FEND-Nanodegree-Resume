@@ -29,7 +29,9 @@ span {
 
 .icon {
   max-width: 70px;
-  max-height: 72px; }
+  max-height: 72px;
+  margin: 0 auto;
+  order: -1; }
 
 .biopic {
   position: absolute;
@@ -177,10 +179,22 @@ span {
   .connect a {
     color: inherit; }
 
+.center-text {
+  padding: 20px 0; }
+
 @media screen and (max-width: 645px) {
   .work-entry, .education-entry {
     display: flex;
     flex-direction: column;
     justify-content: center; } }
+@media screen and (max-width: 992px) {
+  .progress {
+    width: inherit; } }
+@media screen and (max-width: 400px) {
+  .flex-item {
+    flex-direction: column; }
+
+  .progress {
+    width: 16em; } }
 
 /*# sourceMappingURL=main.css.map */
