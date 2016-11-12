@@ -18,13 +18,13 @@ var HTMLheaderRole = '<span class="role">%data%</span>';
 var rowHeader = '<div class="top-info row"></div>';
 var rowSkills = '<div class="skills-section row"></div>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="bold-text">%contact%</span><span class="text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="bold-text">Mobile</span><span class="text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="bold-text">Email</span><span class="text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="bold-text">Twitter</span><span class="text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="bold-text">Github</span><span class="text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="bold-text">Blog</span><span class="text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="bold-text">Location</span><span class="text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="label-item">%contact%</span><span class="text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="label-item">Mobile</span><span class="text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="label-item">Email</span><span class="text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="label-item">Twitter</span><span class="text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="label-item">Github</span><span class="text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="label-item">Blog</span><span class="text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="label-item">Location</span><span class="text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<div class="welcome-message">%data%</div>';
@@ -33,7 +33,7 @@ var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills
 var HTMLskills = '<span class="label-text">%data%</span>';
 var HTMLskillsProgress = '<div class="progress">'+
                           '<div class="progress-bar" role="progressbar" aria-valuenow="%data%" aria-valuemin="0" aria-valuemax="100" style="width: '+'%value%'+'%;">'+
-                          '<span class="sr-only">60% Complete</span>'+
+                          '<span class="sr-only">'+ '%sr-value%' +'% Complete</span>'+
                           '</div>'+
                           '</div>';
 
@@ -50,7 +50,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#" class="projectTitle">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img src="%data%" alt="%alt-data%">';
 
 var HTMLschoolStart = '<div class="education-entry col-xs-10 col-md-7"></div>';
 var HTMLschoolName = '<a class="school-link" href="#">%data%';

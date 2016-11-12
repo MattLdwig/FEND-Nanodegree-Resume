@@ -21,7 +21,6 @@ var bio = {
         var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
         var formattedHeaderRole = HTMLheaderRole.replace('%data%', bio.role);
         var formattedbioPic = HTMLbioPic.replace('%data%', bio.biopic);
-        // Welcome message
         var formattedMsg = HTMLwelcomeMsg.replace('%data%', bio.message);
         $('#header').prepend(rowHeader);
         $('#header').append(formattedbioPic);
@@ -39,10 +38,10 @@ var bio = {
         var formattedEmail = HTMLemail.replace('%data%', '<a class="email" href=mailto:' + bio.contacts.email + '>' + bio.contacts.email + '</a>');
         $('#top-contacts').append(formattedEmail);
         $('#footerContacts').append(formattedEmail);
-        var formattedTwitter = HTMLtwitter.replace('%data%', '<a class="email" href="https://twitter.com/Mattldwig">' + bio.contacts.twitter + '</a>');
+        var formattedTwitter = HTMLtwitter.replace('%data%', '<a class="twitter" href="https://twitter.com/Mattldwig">' + bio.contacts.twitter + '</a>');
         $('#top-contacts').append(formattedTwitter);
         $('#footerContacts').append(formattedTwitter);
-        var formattedGithub = HTMLgithub.replace('%data%', '<a class="email" href="https://github.com/Wapika">' + bio.contacts.github + '</a>');
+        var formattedGithub = HTMLgithub.replace('%data%', '<a class="github" href="https://github.com/Wapika">' + bio.contacts.github + '</a>');
         $('#top-contacts').append(formattedGithub);
         $('#footerContacts').append(formattedGithub);
         var formattedBlog = HTMLblog.replace('%data%', bio.contacts.blog);
@@ -66,6 +65,7 @@ var bio = {
                 var formattedSkills = HTMLskills.replace('%data%', skill);
                 var formmatedSkillsProgress = HTMLskillsProgress.replace('%data%', bio.progress[bio.skills.indexOf(skill)]);
                 formmatedSkillsProgress = formmatedSkillsProgress.replace('%value%', bio.progress[bio.skills.indexOf(skill)]);
+                formmatedSkillsProgress = formmatedSkillsProgress.replace('%sr-value%', bio.progress[bio.skills.indexOf(skill)]);
                 $('#skills').append(formattedSkills + formmatedSkillsProgress);
                 $('#skills').children('.label-text, .progress').wrapAll('<li class="col-xs-12 col-md-5 list-skills"></li>');
             });
@@ -123,43 +123,46 @@ var projects = {
         "title": "JavaScript Calculator",
         "dates": "2016",
         "description": "Calculateur codé en <br>JavaScript.",
-        "images": ["images/calc.png"]
+        "images": ["images/calc.png","images/calc_2.png"],
     }, {
         "title": "Pomodoro Timer",
         "dates": "2016",
         "description": "Horloge de Pomodoro optimisant <br>la productivité.",
-        "images": ["images/pomodoro.png"]
+        "images": ["images/pomodoro.png","images/pomodoro_2.png"]
     }, {
         "title": "Random Quotes",
         "dates": "2016",
         "description": "Générateur de citations <br>et de couleurs complémentaires.",
-        "images": ["images/inspire.png"]
+        "images": ["images/inspire.png","images/inspire_2.png"]
     }, {
         "title": "Weather Application",
         "dates": "2016",
         "description": "Application web météo <br>basée sur la localisation.",
-        "images": ["images/weather.png"]
+        "images": ["images/weather.png","images/weather_2.png"]
     }, {
         "title": "Wikipedia Viewer",
         "dates": "2016",
         "description": "Page de recherche <br>utilisant l’API Wikipédia.",
-        "images": ["images/wikipedia.png"]
+        "images": ["images/wikipedia.png","images/wikipedia_2.png"]
     }, {
         "title": "Portfolio",
         "dates": "2016",
         "description": "Réalisation d’un portfolio <br>comme exercice de webDesign.",
-        "images": ["images/portfolio.png"]
+        "images": ["images/portfolio.png","images/portfolio_2.png"]
     }],
     "display": function() {
         for (i = 0; i < projects.projects.length; i++) {
+          $('#projects').append(HTMLprojectStart);
             var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
-            var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
-            var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
-            var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].images);
-            $('#projects').append(HTMLprojectStart);
             $('.project-entry:last').append(formattedProjectTitle);
-            $('.project-entry:last').append(formattedProjectImage);
+            var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
             $('.project-entry:last').append(formattedProjectDates);
+            var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
+              projects.projects.images.forEach(function(images) {
+                var formattedProjectImage = HTMLprojectImage.replace('%data%', images);
+                formattedProjectImage = formattedProjectImage.replace('%alt-data%',projects.projects[i].title);
+                $('.project-entry:last').append(formattedProjectImage);
+              });
             $('.project-entry:last').append(formattedProjectDescription);
         }
         // Add boostrap class to project-entry div
@@ -219,13 +222,12 @@ var education = {
             var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors);
             $('#education').append(HTMLschoolStart);
             $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree + formattedSchoolMajor + formattedSchoolDates + formattedSchoolLocation);
-        };
+        }
         $('#education').append('<h3 class="onlineCoursesTitle">Online Courses</h3>');
         for (i = 0; i < education.onlineCourses.length; i++) {
             var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title);
             var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school);
             var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[i].dates);
-            var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.onlineCourses[i].location);
             var formattedOnlineUrl = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
             $('#education').append(HTMLschoolStart);
             $('.education-entry:last').append(formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineUrl);
@@ -253,6 +255,7 @@ $('#education').addClass('education-section');
 // Append Google Map
 $('#map-div').append(googleMap);
 // Remove unused classes
+$('#map-div h2').addClass('location-section-title');
 $('.connect h2').removeClass('orange');
 $('.connect h2').removeClass('center-text').addClass('footer-title');
 $('#footerContacts').removeClass('flex-box');

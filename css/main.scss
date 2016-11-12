@@ -85,7 +85,6 @@ span {
 .work {
   @include flex-box(column,center);
   align-items: center;
-  width: 100%;
 }
 
 .projects-section,
@@ -178,25 +177,35 @@ span {
   padding: 10px 0 0;
 }
 
-/* WORK */
+/* WORK AND EDUCATION */
 
 .work-section,
 .education-section {
   background: $dark-grey;
-  color : $white-text;
   padding: 50px 0;
 }
+
 
 .work-entry,
 .education-entry {
   border: 1px solid $white-text;
   margin: 10px;
-  color: $white-text;
 }
+
+.work-section,
+.work-entry,
 .employer-link,
+.education-section,
+.education-entry,
 .school-link,
 .course-title,
-.course-link {
+.course-link,
+.onlineCoursesTitle,
+.connect,
+.connect .email,
+.connect .twitter,
+.connect .github
+ {
   color: $white-text;
 }
 
@@ -210,6 +219,8 @@ span {
   float: right;
   order: -1;
 }
+
+/* PROJECTS */
 
 #projects,
 #map-div {
@@ -226,18 +237,18 @@ span {
   font-size: 1.3em;
 }
 
-.onlineCoursesTitle {
-  color: #fff;
-}
+
+/* MAP */
 
 #map-div {
   background: $light-grey;
   height: 600px;
   @include flex-box(column, center);
 
-  h2 {
-    margin: 0 0 15px 0;
-  }
+}
+
+.location-section-title {
+  margin: 0 0 15px 0;
 }
 
 #map {
@@ -246,16 +257,15 @@ span {
   box-shadow: 0px 0px 5px 2px rgba(69,66,62,0.3);
 }
 
+/* FOOTER */
+
 .connect {
   @include flex-box(column, center) ;
   align-items: center;
   background: $dark-grey;
   padding: 50px;
-  color: $white-text;
-    a {
-      color: inherit;
-    }
 }
+
 .footer-title {
   padding: 20px 0;
 }
