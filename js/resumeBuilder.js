@@ -158,7 +158,7 @@ var projects = {
             var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
             $('.project-entry:last').append(formattedProjectDates);
             var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
-              projects.projects.images.forEach(function(images) {
+              projects.projects[i].images.forEach(function(images) {
                 var formattedProjectImage = HTMLprojectImage.replace('%data%', images);
                 formattedProjectImage = formattedProjectImage.replace('%alt-data%',projects.projects[i].title);
                 $('.project-entry:last').append(formattedProjectImage);
