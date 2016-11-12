@@ -29,6 +29,12 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: inherit;
+  font-weight: bold;
+  padding: 5px;
+}
+
 span {
   padding: 0;
 }
