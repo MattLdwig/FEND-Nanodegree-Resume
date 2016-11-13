@@ -1,3 +1,4 @@
+'use strict';
 var bio = {
   "name": "Matt Ludwig",
   "role": "web Developper",
@@ -18,7 +19,7 @@ var bio = {
     'After Effects'
   ],
   "progress": [60, 20, 40, 80, 45, 35],
-  "message": "Bonjour, Mon nom est Matt Ludwig. Je suis web Developpeur.<br>" +
+  "welcomeMessage": "Bonjour, Mon nom est Matt Ludwig. Je suis web Developpeur.<br>" +
     " Enthousiaste, curieux et passionné,<br>" +
     " j’aime mettre a profit mon esprit créatif pour <br>" +
     " imaginer de nouvelles choses et trouver <br>" +
@@ -27,7 +28,7 @@ var bio = {
     var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
     var formattedHeaderRole = HTMLheaderRole.replace('%data%', bio.role);
     var formattedbioPic = HTMLbioPic.replace('%data%', bio.biopic);
-    var formattedMsg = HTMLwelcomeMsg.replace('%data%', bio.message);
+    var formattedMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
     $('#header').prepend(rowHeader);
     $('#header').append(formattedbioPic);
     $('.top-info').prepend(formattedMsg);
@@ -39,26 +40,20 @@ var bio = {
     $('.welcome-message').addClass('col-xs-12 col-md-6');
     // Formating Contact Informations and append in header and footer
     var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-    $('#top-contacts').append(formattedMobile);
-    $('#footerContacts').append(formattedMobile);
+    $('#top-contacts, #footerContacts').append(formattedMobile);
     var formattedEmail = HTMLemail.replace('%data%', '<a class="email" href=mailto:' + bio.contacts.email + '>' +
       bio.contacts.email + '</a>');
-    $('#top-contacts').append(formattedEmail);
-    $('#footerContacts').append(formattedEmail);
+    $('#top-contacts, #footerContacts').append(formattedEmail);
     var formattedTwitter = HTMLtwitter.replace('%data%', '<a class="twitter" href="https://twitter.com/Mattldwig">' +
       bio.contacts.twitter + '</a>');
-    $('#top-contacts').append(formattedTwitter);
-    $('#footerContacts').append(formattedTwitter);
+    $('#top-contacts, #footerContacts').append(formattedTwitter);
     var formattedGithub = HTMLgithub.replace('%data%', '<a class="github" href="https://github.com/Wapika">' + bio.contacts
       .github + '</a>');
-    $('#top-contacts').append(formattedGithub);
-    $('#footerContacts').append(formattedGithub);
+    $('#top-contacts, #footerContacts').append(formattedGithub);
     var formattedBlog = HTMLblog.replace('%data%', bio.contacts.blog);
-    $('#top-contacts').append(formattedBlog);
-    $('#footerContacts').append(formattedBlog);
+    $('#top-contacts, #footerContacts').append(formattedBlog);
     var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-    $('#top-contacts').append(formattedLocation);
-    $('#footerContacts').append(formattedLocation);
+    $('#top-contacts, #footerContacts').append(formattedLocation);
     // Add Bootstrap class to #top-contacts
     // Detach #top-contacts from the DOM and insert it in .top-info row
     var topContacts = $('#top-contacts');
@@ -113,7 +108,7 @@ var work = {
     "icon": "images/pen.png"
   }],
   "display": function() {
-    for (i = 0; i < work.jobs.length; i++) {
+    for (var i = 0; i < work.jobs.length; i++) {
       var formattedWorkEmployers = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
       var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title);
       var formattedWorkDate = HTMLworkDates.replace('%data%', work.jobs[i].dates);
@@ -182,14 +177,14 @@ var projects = {
     ]
   }],
   "display": function() {
-    for (i = 0; i < projects.projects.length; i++) {
+    for (var i = 0; i < projects.projects.length; i++) {
       $('#projects').append(HTMLprojectStart);
       var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
       $('.project-entry:last').append(formattedProjectTitle);
       var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
       $('.project-entry:last').append(formattedProjectDates);
       var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
-      for (j = 0; j < projects.projects[i].images.length; j++) {
+      for (var j = 0; j < projects.projects[i].images.length; j++) {
         var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].images[j]);
         formattedProjectImage = formattedProjectImage.replace('%alt-data%', projects.projects[i].title);
         $('.project-entry:last').append(formattedProjectImage);
@@ -244,7 +239,7 @@ var education = {
     "url": "https://www.edx.org/"
   }],
   "display": function() {
-    for (i = 0; i < education.schools.length; i++) {
+    for (var i = 0; i < education.schools.length; i++) {
       var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[i].name);
       formattedSchoolName = formattedSchoolName.replace('#', education.schools[i].url);
       var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
@@ -255,14 +250,14 @@ var education = {
       $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree + formattedSchoolMajor +
         formattedSchoolDates + formattedSchoolLocation);
     }
-    $('#education').append('<h3 class="onlineCoursesTitle">Online Courses</h3>');
+    $('#education').append(HTMLonlineClasses);
     for (i = 0; i < education.onlineCourses.length; i++) {
       var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title);
       formattedOnlineTitle = formattedOnlineTitle.replace('#', education.onlineCourses[i].url);
       var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school);
       var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[i].dates);
       var formattedOnlineUrl = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
-      formattedOnlineUrl = formattedOnlineUrl.replace('#', education.onlineCourses[i].url)
+      formattedOnlineUrl = formattedOnlineUrl.replace('#', education.onlineCourses[i].url);
       $('#education').append(HTMLschoolStart);
       $('.education-entry:last').append(formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates +
         formattedOnlineUrl);
